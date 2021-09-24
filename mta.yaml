@@ -1,0 +1,48 @@
+_schema-version: "3.2"
+ID: com.mhi.ZGL010
+version: 0.0.1
+modules:
+  - name: ZGL010-API
+    type: java.tomcat
+    path: ZGL010-API/application
+    parameters:
+      memory: 1500M
+      timeout: 300
+      random-route: true
+      buildpacks:
+        - sap_java_buildpack
+    properties:
+      TARGET_RUNTIME: tomcat
+      JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+      SPRING_PROFILES_ACTIVE: 'cloud'
+      USE_JCO: true
+    build-parameters:
+      builder: custom
+      commands:
+        - mvn clean package
+      build-result: target/*-application.war
+    requires:
+    - name: s4h-xsuaa
+    - name: s4h-destination
+    - name: s4h-connectivity
+resources:
+  - name: s4h-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-name: s4h-xsuaa
+      service-plan: application
+
+  - name: s4h-destination
+    parameters:
+      service-plan: lite
+      service: destination
+      service-name: s4h-destination
+    type: org.cloudfoundry.managed-service
+
+  - name: s4h-connectivity    
+    parameters:
+      service-plan: lite
+      service: connectivity
+      service-name: s4h-connectivity  
+    type: org.cloudfoundry.existing-service

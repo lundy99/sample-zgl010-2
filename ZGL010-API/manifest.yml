@@ -1,0 +1,20 @@
+---
+applications:
+
+- name: ZGL010-API
+  memory: 1500M
+  timeout: 300
+  random-route: true
+  path: application/target/ZGL010-API-application.war
+  buildpacks:
+    - sap_java_buildpack
+  env:
+    USE_JCO: true
+    TARGET_RUNTIME: tomcat
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+services:
+#  - my-application-logs
+#  - s4h-xsuaa
+#  - s4h-destination
+#  - s4h-connectivity
