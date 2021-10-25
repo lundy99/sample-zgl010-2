@@ -2,6 +2,7 @@
 <configuration>
     <springProfile name="!cloud">
         <include resource="org/springframework/boot/logging/logback/base.xml"/>
+        <!-- <root level="DEBUG"/> -->
         <root level="INFO"/>
         <logger name="org.springframework.web" level="INFO"/>
     </springProfile>

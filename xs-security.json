@@ -1,0 +1,37 @@
+{
+  "xsappname": "ZGL010-API",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.r_orders",
+      "description": "r_orders"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "salesorg",
+      "description": "salesorg",
+      "valueType": "s",
+      "valueRequired": false
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "r_orders",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.r_orders"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "userattributes",
+      "description": "generated",
+      "default-role-name": "Attributes of a User",
+      "scope-references": [],
+      "attribute-references": [
+        "salesorg"
+      ]
+    }
+  ]
+}

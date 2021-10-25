@@ -83,12 +83,11 @@
         </dependency>
 
         <!-- Dependencies for security setup -->
-        <!--
-        <dependency>
+        <!-- <dependency>
             <groupId>com.sap.cloud.security.xsuaa</groupId>
             <artifactId>xsuaa-spring-boot-starter</artifactId>
-        </dependency>
-        -->
+        </dependency> -->
+       
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -128,6 +127,56 @@
             <groupId>com.sap.cloud.db.jdbc</groupId>
             <artifactId>ngdbc</artifactId>
             <version>2.9.12</version>
+        </dependency>
+
+        <!-- spring-cloud-cloudfoundry-connector – It simplifies the process of connecting to services in cloud environments like Cloud Foundry. -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+		    <version>1.2.2.RELEASE</version>
+		    <scope>runtime</scope>
+		</dependency>
+        <!-- spring-cloud-cloudfoundry-hana-service-connector – Hana connector for Spring boot. -->
+		<dependency>
+		    <groupId>com.sap.hana.cloud</groupId>
+		    <artifactId>spring-cloud-cloudfoundry-hana-service-connector</artifactId>
+		    <version>1.0.4.RELEASE</version>
+		</dependency>
+        <!-- spring-cloud-spring-service-connector – This library provides data source implementations for spring data connector. -->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-spring-service-connector</artifactId>
+		    <version>1.2.2.RELEASE</version>
+		</dependency>		
+
+        <!-- exclude tomcat jdbc connection pool, use HikariCP -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Spring boot AOP -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>io.pivotal.cfenv</groupId>
+            <artifactId>java-cfenv-boot</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sap.cloud</groupId>
+            <artifactId>neo-java-web-api</artifactId>
+            <version>4.12.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

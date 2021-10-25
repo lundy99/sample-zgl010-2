@@ -10,7 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 // import com.mhi.zx0000.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import io.pivotal.cfenv.jdbc.CfJdbcEnv;
 
 @SpringBootApplication
 @ComponentScan({"com.sap.cloud.sdk", "com.mhi"})
@@ -27,8 +28,11 @@ public class Application extends SpringBootServletInitializer
 
     public static void main( final String[] args )
     {
+         CfJdbcEnv cfJdbcEnv = new CfJdbcEnv();
+        logger.info("CfJdbcEnv:" + cfJdbcEnv.toString());
+
         //         // スキャンされているbeanを出力する
-        // logger.info("START:スキャンされているbeanを出力する");
+        logger.info("START:スキャンされているbeanを出力する");
         // AnnotationConfigApplicationContext     applicationContext =
         //   new AnnotationConfigApplicationContext(Application.class);
 

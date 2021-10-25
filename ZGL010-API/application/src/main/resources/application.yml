@@ -1,2 +1,10 @@
 server:
   port: 8080
+
+#コネクションプール設定
+spring:
+    datasource:
+        hikari:
+            maximumPoolSize: 10
+            minimumIdle: 5
+            

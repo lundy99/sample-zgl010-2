@@ -12,3 +12,8 @@
 **/node_modules
 **/.DS_Store
 .pipeline/commonPipelineEnvironment
+
+# auto generated wildcard
+.env
+# auto generated wildcard
+ZGL010-API/application/target/.env
