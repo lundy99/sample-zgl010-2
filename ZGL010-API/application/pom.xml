@@ -165,13 +165,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-
+        <!-- Cloud Foundry Env -->
         <dependency>
         <groupId>io.pivotal.cfenv</groupId>
             <artifactId>java-cfenv-boot</artifactId>
             <version>2.2.2.RELEASE</version>
         </dependency>
-
+        <!-- SAP JCo -->
         <dependency>
             <groupId>com.sap.cloud</groupId>
             <artifactId>neo-java-web-api</artifactId>
