@@ -1,0 +1,33 @@
+applications:
+
+ 
+
+- name: ZGL010-app-router
+
+  path: ./
+
+  buildpacks:
+
+  - nodejs_buildpack
+
+  memory: 120M
+
+  routes:
+
+  - route: ZGL010-app-router.cfapps.us10.hana.ondemand.com
+
+  env:
+
+    NODE_TLS_REJECT_UNAUTHORIZED: 0
+
+    destinations: >
+
+      [
+
+         {"name":"dest-to-example", "url" :"https://zgl010-api.cfapps.us10.hana.ondemand.com/Hello", "forwardAuthToken": true }
+
+      ]
+
+  services:
+
+    - s4h-xsuaa

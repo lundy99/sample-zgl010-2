@@ -109,11 +109,11 @@
         </dependency>
 
         <!-- Use mhi-common jar -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.mhi.zx0000</groupId>
             <artifactId>zx0000-common</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency> 
+        </dependency>  -->
 
         <!-- Control the structure from RFC return-->
         <dependency>
