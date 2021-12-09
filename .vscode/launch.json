@@ -5,6 +5,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Java Program",
+      "request": "launch",
+      "mainClass": "com.mhi.zgl010.Application",
+      "args": "--spring.profiles.active=dev"
+    },
+    {
+      "type": "java",
       "name": "Launch with Arguments Prompt1",
       "request": "launch",
       "mainClass": "",
@@ -22,39 +29,11 @@
       "name": "Launch with Env",
       "request": "launch",
       "mainClass": "com.mhi.zgl010.Application",
-      "args": "--spring.profiles.active=dev ",
       "env": {
-        "VCAP_SERVICES": {
-          "destination": {
-            "label": "destination",
-            "provider": null,
-            "plan": "lite",
-            "name": "s4h-destination",
-            "tags": "destination"
-            // ,"VCAP_SERVICES.destination.tags": "conn"
-            // ,"VCAP_SERVICES.destination.tags": "connsvc"
-            ,
-            "instance_guid": "88653caf-9662-4957-a081-10a945b0c51a",
-            "instance_name": "s4h-destination",
-            "binding_guid": "f634b8ca-334d-4981-ad4b-ef573327406f",
-            "binding_name": null,
-            "credentials": {
-              "uaadomain": "authentication.us10.hana.ondemand.com",
-              "tenantmode": "dedicated",
-              "clientid": "sb-clone88653caf96624957a08110a945b0c51a!b34236|destination-xsappname!b62",
-              "instanceid": "88653caf-9662-4957-a081-10a945b0c51a",
-              "verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp8JSZm39PhSn4cPsOo/Qi2BBlQKh54t4Kh64oQ8891ZQIfCHPl2YPUZMmUJ0tjtfXhidCHyY3lYCGkwUmhlAJF+KZTYbuX4vh0xOp1Ifpa9xLi7CGF/iXaYn42uLdSLk99esEkO+XyAsWMArx5sHxoLmv8cTNwyt7vZx5MJN96w99L0GSCk0RS8KJYErfP95UssZCluLPk0xfP2NHF5BlzV9PDcR7hw94y5QYZaps/E71Nuag+q6LFiD+EAi8Bz6huEGtWPY8ZUv4hn9zoeu/O96CrZCI6zBXIGd7d9AyR0kji+YpzkdGsR0XKhd33i/1YtUswKR8vmd0qcb7xaNnQIDAQAB-----END PUBLIC KEY-----",
-              "xsappname": "clone88653caf96624957a08110a945b0c51a!b34236|destination-xsappname!b62",
-              "identityzone": "e620b360trial",
-              "clientsecret": "f634b8ca-334d-4981-ad4b-ef573327406f$4ZC03ToCGoqTh1hXvb6OJMqxoq43JWontMcAhnBTcDg=",
-              "tenantid": "c00f21f3-18b8-477e-a67e-b8002604f89d",
-              "uri": "https://destination-configuration.cfapps.us10.hana.ondemand.com",
-              "url": "https://e620b360trial.authentication.us10.hana.ondemand.com"
-            },
-            "syslog_drain_url": null,
-            "volume_mounts": null
-          }
-        }
+        "vcap.services.hana.credentials.driver": "com.sap.db.jdbc.Driver",
+        "vcap.services.hana.credentials.url": "jdbc:sap://ba331d5a-9060-4095-a149-25ced0779ebe.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=EXTS4_HDI_1",
+        "vcap.services.hana.credentials.username": "EXTS4_HDI_1_7VWB2EI9B2ECAKSE246EN3FXU_RT",
+        "vcap.services.hana.credentials.password": "Ze9K43756w5A7w1bw2x3nllx6nXe1uP6mXm8i8JaaFs3K2ESAsMLY40eWzi29Oty4DrP7MyN7JaGHfDtmblTYDMhDdiQev7qvvqkWGG.FhAXPiuRFqh5qCETT.A4QT9Z"
       }
     }
   ]

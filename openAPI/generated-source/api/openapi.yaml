@@ -1,0 +1,144 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- description: Generated server url
+  url: http://localhost:8080/
+paths:
+  /orders:
+    get:
+      operationId: getOrders
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                items:
+                  $ref: '#/components/schemas/Ytorderadd'
+                type: array
+          description: OK
+      tags:
+      - zgl-000-controller
+      x-accepts: '*/*'
+    put:
+      operationId: putOrders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ytorderadd'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CountResponse'
+          description: OK
+      tags:
+      - zgl-000-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /rfc:
+    get:
+      operationId: getRfc
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          default: world
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+          description: OK
+      tags:
+      - zgl-000-controller
+      x-accepts: '*/*'
+  /hello:
+    get:
+      operationId: getHello
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          default: world
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+          description: OK
+      tags:
+      - zgl-000-controller
+      x-accepts: '*/*'
+  /async:
+    get:
+      operationId: getAsync
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          default: world
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+          description: OK
+      tags:
+      - zgl-000-controller
+      x-accepts: '*/*'
+components:
+  schemas:
+    Ytorderadd:
+      example:
+        ybukrs: ybukrs
+        mandt: mandt
+        ybeln: ybeln
+        yreasoncd: yreasoncd
+        yreasons: yreasons
+      properties:
+        mandt:
+          type: string
+        ybukrs:
+          type: string
+        ybeln:
+          type: string
+        yreasoncd:
+          type: string
+        yreasons:
+          type: string
+      type: object
+    CountResponse:
+      example:
+        result: result
+      properties:
+        result:
+          type: string
+      type: object
+    HelloWorldResponse:
+      example:
+        hello: hello
+      properties:
+        hello:
+          type: string
+      type: object
+

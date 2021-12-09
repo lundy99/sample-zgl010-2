@@ -1,0 +1,121 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080/
+  description: Generated server url
+paths:
+  /orders:
+    get:
+      tags:
+      - zgl-000-controller
+      operationId: getOrders
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ytorderadd'
+    put:
+      tags:
+      - zgl-000-controller
+      operationId: putOrders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ytorderadd'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CountResponse'
+  /rfc:
+    get:
+      tags:
+      - zgl-000-controller
+      operationId: getRfc
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+          default: world
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+  /hello:
+    get:
+      tags:
+      - zgl-000-controller
+      operationId: getHello
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+          default: world
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+  /async:
+    get:
+      tags:
+      - zgl-000-controller
+      operationId: getAsync
+      parameters:
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+          default: world
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+components:
+  schemas:
+    Ytorderadd:
+      type: object
+      properties:
+        mandt:
+          type: string
+        ybukrs:
+          type: string
+        ybeln:
+          type: string
+        yreasoncd:
+          type: string
+        yreasons:
+          type: string
+    CountResponse:
+      type: object
+      properties:
+        result:
+          type: string
+    HelloWorldResponse:
+      type: object
+      properties:
+        hello:
+          type: string

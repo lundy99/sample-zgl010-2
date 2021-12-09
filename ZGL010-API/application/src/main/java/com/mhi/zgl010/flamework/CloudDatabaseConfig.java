@@ -4,27 +4,33 @@ import javax.sql.DataSource;
 
 import com.zaxxer.hikari.HikariDataSource;
 
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-// import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import io.pivotal.cfenv.core.CfCredentials;
 import io.pivotal.cfenv.jdbc.CfJdbcEnv;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component
 @Profile("cloud")
-public class Configration extends AbstractCloudConfig {
+public class CloudDatabaseConfig extends AbstractCloudConfig {
+
+    Logger logger = LoggerFactory.getLogger(CloudDatabaseConfig.class);
+    
+    // @Bean
+    // @Profile("cloud")
+    // public CfJdbcEnv cfJdbcEnv() {
+    //     return new CfJdbcEnv();
+    // }
     @Bean 
+    @Profile("cloud")
     public DataSource dataSource() {
-        Logger logger = LoggerFactory.getLogger(Configration.class);
+        
         
         CfJdbcEnv cfJdbcEnv = new CfJdbcEnv();
         String url = "";
@@ -34,10 +40,13 @@ public class Configration extends AbstractCloudConfig {
 
         if (cfJdbcEnv != null) {
             CfCredentials hanaCredentials = cfJdbcEnv.findCredentialsByTag("hana");
-			url = hanaCredentials.getUri("hana");
+            logger.info(hanaCredentials.toString());
+            
+            url = hanaCredentials.getUri("hana");
 			user = hanaCredentials.getUsername();
             password = hanaCredentials.getPassword();
             driver = hanaCredentials.getString("driver");
+
             logger.info("hana.url/CfJdbcEnv:" + url);
             logger.info("hana.user/CfJdbcEnv:"+ user);
             logger.info("hana.password/CfJdbcEnv:"+ password);
@@ -57,28 +66,4 @@ public class Configration extends AbstractCloudConfig {
         return ds;
 	}
 
-   
-	// @Bean 
-	// public JdbcTemplate createJdbcTemplate(DataSource dataSource) {
-	// 	return new JdbcTemplate(dataSource);
-    // }
-    
-    // @Bean
-	// @Primary
-	// @Profile("cloud")
-	// public DataSourceProperties dataSourceProperties() {
-	// 	CfJdbcEnv cfJdbcEnv = new CfJdbcEnv();
-	// 	DataSourceProperties properties = new DataSourceProperties();
-	// 	CfCredentials hanaCredentials = cfJdbcEnv.findCredentialsByTag("hana");
-
-	// 	if (hanaCredentials != null) {
-
-	// 		String uri = hanaCredentials.getUri("hana");
-	// 		properties.setUrl(uri);
-	// 		properties.setUsername(hanaCredentials.getUsername());
-	// 		properties.setPassword(hanaCredentials.getPassword());
-	// 	}
-
-	// 	return properties;
-	// }
 }

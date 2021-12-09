@@ -3,7 +3,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sap/cloud/sdk/cloudplatform/auditlog-scp-cf/3.53.0/auditlog-scp-cf-3.53.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sap/cloud/sdk/cloudplatform/cloudplatform-core/3.53.0/cloudplatform-core-3.53.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sap/cloud/sdk/cloudplatform/auditlog/3.53.0/auditlog-3.53.0.jar" enabled="true" runInBatchMode="false"/>
-    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.12.4/jackson-core-2.12.4.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/vavr/vavr/0.10.4/vavr-0.10.4.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/io/vavr/vavr-match/0.10.4/vavr-match-0.10.4.jar" enabled="true" runInBatchMode="false"/>
@@ -152,4 +151,19 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/javax/mail/javax.mail-api/1.6.2/javax.mail-api-1.6.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/springdoc/springdoc-openapi-ui/1.5.13/springdoc-openapi-ui-1.5.13.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/springdoc/springdoc-openapi-webmvc-core/1.5.13/springdoc-openapi-webmvc-core-1.5.13.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/springdoc/springdoc-openapi-common/1.5.13/springdoc-openapi-common-1.5.13.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/swagger/core/v3/swagger-models/2.1.11/swagger-models-2.1.11.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/swagger/core/v3/swagger-annotations/2.1.11/swagger-annotations-2.1.11.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/swagger/core/v3/swagger-integration/2.1.11/swagger-integration-2.1.11.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/swagger/core/v3/swagger-core/2.1.11/swagger-core-2.1.11.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.12.4/jackson-dataformat-yaml-2.12.4.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/github/classgraph/classgraph/4.8.116/classgraph-4.8.116.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/swagger-ui/4.1.2/swagger-ui-4.1.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/webjars-locator-core/0.46/webjars-locator-core-0.46.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.12.4/jackson-core-2.12.4.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

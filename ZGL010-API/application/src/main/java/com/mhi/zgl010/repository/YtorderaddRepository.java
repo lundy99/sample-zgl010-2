@@ -27,5 +27,26 @@ public class YtorderaddRepository  {
         return result;
 
     }
+    
+    public int insertData(Ytorderadd row) {
 
+        String sqlText  = "INSERT INTO ANIMAL ("	
+            + "MANDT"
+            + ",YBUKRS"
+            + ",YBELN"
+            + ",YREASONCD"
+            + ",YREASONS"
+            + ") "
+            + "VALUES (?,?,?,?,?)";
+
+        int result = jdbcTemplate.update(sqlText, 
+            row.getMandt()
+            ,row.getYbukrs()
+            ,row.getYbeln()
+            ,row.getYreasoncd()
+            ,row.getYreasons());
+       
+        return result;
+
+    }
 }
