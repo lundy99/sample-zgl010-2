@@ -1,10 +1,11 @@
 package com.mhi.zgl010;
 
 // Example for Spring Boot security configuration
-/*
+// /*
 import com.sap.cloud.security.xsuaa.XsuaaServiceConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,6 +17,7 @@ import org.springframework.security.oauth2.jwt.Jwt;
 
 import com.sap.cloud.security.xsuaa.token.TokenAuthenticationConverter;
 @Configuration
+@Profile("cloud")
 @EnableWebSecurity(debug = true) // TODO "debug" may include sensitive information. Do not use in a production system!
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -27,11 +29,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // session is created by approuter
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // sessd ion is createby approuter
+                // .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // sessd ion is createby approuter
                 .and()
                 .authorizeRequests()
                 .antMatchers("/*").authenticated()
-                .antMatchers("/*").hasAuthority("Display")
+                // .antMatchers("/*").hasAuthority("Display")
+                .antMatchers("/**").hasAuthority("Display")
                 .anyRequest().denyAll()
                 .and()
                 .oauth2ResourceServer()
@@ -44,4 +48,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new TokenAuthenticationConverter(xsuaaServiceConfiguration).setLocalScopeAsAuthorities(true);
     }
 }
-*/
+// */

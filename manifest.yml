@@ -15,12 +15,12 @@ applications:
     JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
 
     # SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
-    xsuaa_connectivity_instance_name: s4h-xsuaa
+    xsuaa_connectivity_instance_name: s4h-xsuaa2
     connectivity_instance_name: s4h-connectivity
     destination_instance_name: s4h-destination
   services:
   #  - my-application-logs
-  - s4h-xsuaa
+  - s4h-xsuaa2
   - s4h-destination
   - s4h-connectivity
   - exts4h_hdidb

@@ -4,16 +4,16 @@
     "tenant-mode": "dedicated",
     "scopes": [
         {
-            "name": "$XSAPPNAME.all",
-            "description": "all"
+            "name": "$XSAPPNAME.Display",
+            "description": "display"
         }
     ],
     "role-templates": [
         {
-            "name": "all",
-            "description": "all",
-            "scope-references": [
-                "$XSAPPNAME.all"
+            "name": "Viewer",
+            "description": "Required to view things in our solution",
+            "scope-references"     : [
+              "$XSAPPNAME.Display"
             ]
         }
     ]

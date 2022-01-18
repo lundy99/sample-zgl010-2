@@ -34,8 +34,8 @@ modules:
       SPRING_PROFILES_ACTIVE: 'cloud'
       USE_JCO: true
       SET_LOGGING_LEVEL: '{com.sap.core.connectivity.jco: DEBUG, com.sap.conn.jco: DEBUG}'
-      # xsuaa_connectivity_instance_name: s4h-xsuaa2
-      xsuaa_connectivity_instance_name: ZGL010-xsuaa
+      # xsuaa_connectivity_instance_name: s4h-xsuaa
+      # xsuaa_connectivity_instance_name: ZGL010-xsuaa
       connectivity_instance_name: s4h-connectivity
       destination_instance_name: s4h-destination
     build-parameters:
@@ -44,8 +44,9 @@ modules:
         - mvn clean package
       build-result: target/*-application.war
     requires:
-    # - name: s4h-xsuaa2
+    - name: s4h-xsuaa
     - name: ZGL010-xsuaa
+    # - name: ZGL010-xsuaa2
     - name: s4h-destination
     - name: s4h-connectivity
     - name: exts4h_hdidb
@@ -60,16 +61,28 @@ modules:
     #     srv-url: ${default-url}
 # ------------------------------------------------------------
 resources:
-  # - name: s4h-xsuaa2
+  - name: s4h-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-name: s4h-xsuaa
+      service-plan: application
+      path: ZGL010-API/xsuaa/xs-security.json
+      # path: ZGL010-API/xsuaa/xs-security_copy.json
   - name: ZGL010-xsuaa
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
-      # service-name: s4h-xsuaa2
       service-name: ZGL010-xsuaa
       service-plan: application
-      # path: ZGL010-API/xsuaa/xs-security.json
-      path: ZGL010-API/xsuaa/xs-security_copy_2.json
+  #     # path: ZGL010-API/xsuaa/xs-security.json
+  #     # path: ZGL010-API/xsuaa/xs-security_copy.json
+  # - name: ZGL010-xsuaa2
+  #   type: org.cloudfoundry.managed-service
+  #   parameters:
+  #     service: xsuaa
+  #     service-name: ZGL010-xsuaa
+  #     service-plan: application
   - name: s4h-destination
     parameters:
       service-plan: lite

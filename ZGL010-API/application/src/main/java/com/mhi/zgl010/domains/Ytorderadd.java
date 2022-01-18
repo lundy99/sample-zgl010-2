@@ -10,6 +10,13 @@ import lombok.Data;
 // @Entity
 // @Table(name="ext::ytorderadd")
 public class Ytorderadd {
+
+    // private static final long serialVersionUID = 1L;
+    
+
+    public Ytorderadd() {
+    }
+    
     public Ytorderadd(String mandt, String ybukrs, String ybeln, String yreasoncd, String yreasons) {
         setMandt(mandt);
         setYbukrs(ybukrs);

@@ -1,5 +1,5 @@
 {
-  "xsappname": "ZGL010-API",
+  "xsappname": "ZGL010-API_test",
   "tenant-mode": "dedicated",
   "scopes": [
     {

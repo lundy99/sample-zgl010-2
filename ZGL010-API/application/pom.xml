@@ -83,11 +83,10 @@
         </dependency>
 
         <!-- Dependencies for security setup -->
-        <!-- <dependency>
+        <dependency>
             <groupId>com.sap.cloud.security.xsuaa</groupId>
-            <artifactId>token-client</artifactId> -->
-            <!-- <artifactId>xsuaa-spring-boot-starter</artifactId> -->
-        <!-- </dependency> -->
+            <artifactId>xsuaa-spring-boot-starter</artifactId>
+        </dependency>
        
 
         <dependency>
@@ -188,6 +187,14 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version> -->
         </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.4.5</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -311,7 +318,70 @@
                     </execution>
                 </executions>
             </plugin>
-            
+            <!-- DVMジェネレータ -->
+            <!-- <plugin>-->
+                    <!-- https://mvnrepository.com/artifact/com.sap.cloud.sdk.datamodel/odata-v4-generator -->
+                <!-- <groupId>com.sap.cloud.sdk.datamodel</groupId> -->
+                <!-- <artifactId>odata-generator-maven-plugin</artifactId>
+                <version>3.15.1</version> -->
+                <!--<artifactId>odata-v4-generator-maven-plugin</artifactId>
+                <version>3.59.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-consumption</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputDirectory>${project.basedir}/edmx</inputDirectory>
+                            <outputDirectory>${project.basedir}/src/vdm</outputDirectory>
+                            <deleteOutputDirectory>true</deleteOutputDirectory>
+                            <packageName>com.vdm</packageName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/vdm</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> -->
+            <plugin>
+                <groupId>com.sap.cloud.sdk.datamodel</groupId>
+                <artifactId>odata-v4-generator-maven-plugin</artifactId>
+                <version>3.60.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-consumption</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputDirectory>${project.basedir}/edmx</inputDirectory>
+                            <!-- <outputDirectory>${project.build.directory}/vdm</outputDirectory> -->
+                            <outputDirectory>${project.basedir}/src/main/java/vdm</outputDirectory>
+                            <deleteOutputDirectory>true</deleteOutputDirectory>
+                            <packageName>com.mycompany.vdm</packageName>
+                            <defaultBasePath>odata/v4/</defaultBasePath>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
