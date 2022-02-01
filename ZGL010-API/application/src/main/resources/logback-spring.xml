@@ -11,7 +11,7 @@
         <appender name="STDOUT-JSON" class="ch.qos.logback.core.ConsoleAppender">
             <encoder class="com.sap.hcp.cf.logback.encoder.JsonEncoder"/>
         </appender>
-        <root level="INFO">
+        <root level="DEBUG">
             <appender-ref ref="STDOUT-JSON"/>
         </root>
     </springProfile>

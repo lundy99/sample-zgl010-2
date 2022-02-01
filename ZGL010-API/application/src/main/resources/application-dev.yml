@@ -3,9 +3,9 @@ server:
 
 spring: 
     datasource:
-        url: "jdbc:sap://ba331d5a-9060-4095-a149-25ced0779ebe.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=EXTS4_HDI_1"
-        username: "EXTS4_HDI_1_6HK4TJ1Q79A69S9ZHID3HJNRH_RT"
-        password: "Ub47dWcypVXU7g9e9jhQb77nam-Pl7vJdKPqmMwXC8Z8KjU6VeMINtF.CjPS-Mi4cniC0wC9oHoItOTZ0.Ou.qVmtEYTMumYZHNSJ8ySXR1WMKAivbL54FMOmajgZMDN"
+        url: "jdbc:sap://ba331d5a-9060-4095-a149-25ced0779ebe.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true\u0026validateCertificate=true\u0026currentschema=EXTS4_HDI_1"
+        username: "EXTS4_HDI_1_70QNMK4YHIQ4L6T5S7B6HED1X_RT"
+        password: "Ge0zKs4E2IWEvNt1Kg3YzKQEOI_A3SJdImGAGU_C20o9n9.1AOmZriM0MmUP1OGajcahjzkksAwex8IIlIilc3cY8VzdbtTv08_72R0yI-6hTJ.mmeeZCD_ZqWC0V3yH"
         driver-class-name: com.sap.db.jdbc.Driver
         
         hikari:

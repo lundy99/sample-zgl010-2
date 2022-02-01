@@ -33,7 +33,7 @@ modules:
       JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
       SPRING_PROFILES_ACTIVE: 'cloud'
       USE_JCO: true
-      SET_LOGGING_LEVEL: '{com.sap.core.connectivity.jco: DEBUG, com.sap.conn.jco: DEBUG}'
+      # SET_LOGGING_LEVEL: '{com.sap.core.connectivity.jco: DEBUG, com.sap.conn.jco: DEBUG}'
       # xsuaa_connectivity_instance_name: s4h-xsuaa2
       xsuaa_connectivity_instance_name: ZGL010-xsuaa
       connectivity_instance_name: s4h-connectivity
@@ -52,6 +52,7 @@ modules:
       properties:
         TARGET_CONTAINER: ~{hdi-container-name}
     - name: logs-sample
+    - name: sample-alert
 
 # ------------------------------------------------------------
     # provides:
@@ -98,3 +99,10 @@ resources:
       service: application-logs
       service-plan: lite
       service-name: application-log
+
+  - name: sample-alert
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: alert-notification
+      service-plan: standard
+      service-name: sample-alert

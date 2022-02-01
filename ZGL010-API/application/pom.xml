@@ -83,10 +83,10 @@
         </dependency>
 
         <!-- Dependencies for security setup -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.sap.cloud.security.xsuaa</groupId>
             <artifactId>xsuaa-spring-boot-starter</artifactId>
-        </dependency>
+        </dependency> -->
        
 
         <dependency>
@@ -194,7 +194,12 @@
             <version>2.4.5</version>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/com.sap.cloud.ans/clm-sl-alert-notification-client -->
+        <dependency>
+            <groupId>com.sap.cloud.ans</groupId>
+            <artifactId>clm-sl-alert-notification-client</artifactId>
+            <version>1.5.0</version>
+        </dependency>
     </dependencies>
 
     <build>

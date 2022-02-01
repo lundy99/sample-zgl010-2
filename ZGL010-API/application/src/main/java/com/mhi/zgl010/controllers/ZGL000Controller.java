@@ -29,7 +29,7 @@ import com.sap.conn.jco.JCoException;
 import java.util.Arrays;
 import java.util.List;
 import org.modelmapper.ModelMapper;
-
+import com.mhi.zgl010.flamework.Alert;
 // @Api(tags = "Sample")
 @EnableAsync
 @RestController
@@ -48,7 +48,8 @@ public class ZGL000Controller
     @Autowired
     private Environment env;
 
-    
+    @Autowired
+    private Alert alert;
     @GetMapping( path = "/hello/{client:\\d{3}}")
     public ResponseEntity<HelloWorldResponse> getHello(@PathVariable String client,@RequestParam( defaultValue = "world" ) String name ) throws Exception
     {
@@ -124,4 +125,16 @@ public class ZGL000Controller
         return ResponseEntity.ok(new CountResponse(result));
         
     }
+    @GetMapping( path = "alert")
+    public ResponseEntity<HelloWorldResponse> getalert()
+    {
+
+        logger.info("I am Alert!");
+        
+        alert.sendAlertMail();
+       
+        return ResponseEntity.ok(new HelloWorldResponse("Alert!"));
+        
+    }    
+    
 }
