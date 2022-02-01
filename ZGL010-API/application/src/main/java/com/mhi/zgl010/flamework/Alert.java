@@ -58,12 +58,11 @@ public class Alert {
         
                 
           
-        //  String serviceClientId = cfEnv.findCredentialsByLabel("alert-notification").getString("client_id");
-        //  String serviceClientSecret = cfEnv.findCredentialsByLabel("alert-notification").getString("client_secret");
-        // String serviceOauthUrl = cfEnv.findCredentialsByName("ALNDEV01").getString("oauth_url");
+         String serviceClientId = cfEnv.findCredentialsByLabel("alert-notification").getString("client_id");
+         String serviceClientSecret = cfEnv.findCredentialsByLabel("alert-notification").getString("client_secret");
         URI serviceURL = URI.create(cfEnv.findCredentialsByLabel("alert-notification").getString("oauth_url"));
-        String serviceClientId = "sb-426bd4ec-80cd-48b0-8799-7bb3749dffa5!b34236|ans-xsuaa!b673";
-        String serviceClientSecret = "88398093-afbf-4681-8d7d-afa6256ce18c$Y4SAaaNW7vEyC21heKmLcw5u3VbzqfDba9SfGKy3x8Q=";
+        // String serviceClientId = "sb-426bd4ec-80cd-48b0-8799-7bb3749dffa5!b34236|ans-xsuaa!b673";
+        // String serviceClientSecret = "88398093-afbf-4681-8d7d-afa6256ce18c$Y4SAaaNW7vEyC21heKmLcw5u3VbzqfDba9SfGKy3x8Q=";
         logger.info("I am running! 2 serviceClientId :" + serviceClientId);
          logger.info("I am running! 3 serviceClientSecret :" + serviceClientSecret);
          logger.info("I am running! 4 serviceURL :" + serviceURL);
