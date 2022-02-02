@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="OrdersServiceNoAuth" xmlns="http://docs.oasis-open.org/odata/ns/edm" >
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="V_orders" EntityType="OrdersServiceNoAuth.V_orders">
+          <NavigationPropertyBinding Path="ORDERITEMS" Target="V_orderitems"/>
+        </EntitySet>
+        <EntitySet Name="V_orderitems" EntityType="OrdersServiceNoAuth.V_orderitems">
+          <NavigationPropertyBinding Path="ORDERS" Target="V_orders"/>
+        </EntitySet>
+      </EntityContainer>
+      <EntityType Name="V_orders">
+        <Key>
+          <PropertyRef Name="MANDT"/>
+          <PropertyRef Name="ORDERID"/>
+        </Key>
+        <Property Name="MANDT" Type="Edm.String" MaxLength="3" Nullable="false"/>
+        <Property Name="ORDERID" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="GROSSSALES" Type="Edm.Decimal" Scale="2" Precision="15"/>
+        <Property Name="CUSTOMERID" Type="Edm.String" MaxLength="10"/>
+        <Property Name="CUSTOMERNAME" Type="Edm.String" MaxLength="50"/>
+        <Property Name="CITYNAME" Type="Edm.String" MaxLength="50"/>
+        <Property Name="COUNTRYNAME" Type="Edm.String" MaxLength="50"/>
+        <NavigationProperty Name="ORDERITEMS" Type="Collection(OrdersServiceNoAuth.V_orderitems)">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="V_orderitems">
+        <Key>
+          <PropertyRef Name="MANDT"/>
+          <PropertyRef Name="ORDERID"/>
+          <PropertyRef Name="ORDERITEMID"/>
+        </Key>
+        <Property Name="MANDT" Type="Edm.String" MaxLength="3" Nullable="false"/>
+        <Property Name="ORDERID" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="ORDERITEMID" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="PRODUCTID" Type="Edm.String" MaxLength="10"/>
+        <Property Name="PRODUCTNAME" Type="Edm.String" MaxLength="50"/>
+        <NavigationProperty Name="ORDERS" Type="OrdersServiceNoAuth.V_orders">
+          <ReferentialConstraint Property="ORDERID" ReferencedProperty="ORDERID"/>
+        </NavigationProperty>
+      </EntityType>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/MANDT">
+        <Annotation Term="Common.Label" String="SAPClientID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/ORDERID">
+        <Annotation Term="Common.Label" String="OrderID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/GROSSSALES">
+        <Annotation Term="Common.Label" String="GrossSales"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/CUSTOMERID">
+        <Annotation Term="Common.Label" String="CustomerID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/CUSTOMERNAME">
+        <Annotation Term="Common.Label" String="CustomerName"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/CITYNAME">
+        <Annotation Term="Common.Label" String="CityName"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orders/COUNTRYNAME">
+        <Annotation Term="Common.Label" String="CoutryName"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orderitems/MANDT">
+        <Annotation Term="Common.Label" String="SAPClientID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orderitems/ORDERID">
+        <Annotation Term="Common.Label" String="OrderID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orderitems/ORDERITEMID">
+        <Annotation Term="Common.Label" String="OrderItemID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orderitems/PRODUCTID">
+        <Annotation Term="Common.Label" String="ProductID"/>
+      </Annotations>
+      <Annotations Target="OrdersServiceNoAuth.V_orderitems/PRODUCTNAME">
+        <Annotation Term="Common.Label" String="ProductName"/>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

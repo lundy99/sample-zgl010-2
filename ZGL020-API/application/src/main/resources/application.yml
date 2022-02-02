@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+#コネクションプール設定
+spring:
+    datasource:
+        # url: ${vcap.services.hana.credentials.url}
+        # username: ${vcap.services.hana.credentials.username} 
+        # password: ${vcap.services.hana.credentials.password}
+        # driver-class-name: ${vcap.services.hana.credentials.hana}
+        # url: ${ cfEnv.findCredentialsByTag('hana').get('url') }
+        # username: ${ cfEnv.findCredentialsByTag('hana').getUserName() }
+        # password: ${ cfEnv.findCredentialsByTag('hana').getPassword() }
+        # driver-class-name: ${ cfEnv.findCredentialsByTag('hana').get('driver') }
+        # url: ${ cfHanaCredentials.findJdbcService().getUri("hana")}
+        # username: ${ cfHanaCredentials.getUserName() }
+        # password: ${ cfHanaCredentials.getPassword() }
+        # driver-class-name: ${ cfHanaCredentials.getString("driver") }
+        # url: ${ cfJdbcEnv.findJdbcService().getJdbcUrl()}
+        # username: ${ cfJdbcEnv.findJdbcService().getUserName() }
+        # password: ${ cfJdbcEnv.findJdbcService().getPassword() }
+        # driver-class-name: ${ cfJdbcEnv.findJdbcService().getDriverClassName() }
+        hikari:
+            maximumPoolSize: 10
+            minimumIdle: 5
+            
