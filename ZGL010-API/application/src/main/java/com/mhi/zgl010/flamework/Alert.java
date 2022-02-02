@@ -51,7 +51,7 @@ public class Alert {
     	//initializing IAlertNotificationClient
         HttpClient httpClient = HttpClients.createDefault();
         IRetryPolicy iRetryPolicy = new SimpleRetryPolicy(5, Duration.ofMillis(100));
-        ServiceRegion serviceRegion = ServiceRegion.EU10;
+        ServiceRegion serviceRegion = ServiceRegion.US10;
  
         logger.info("I am running! 1");
          CfEnv cfEnv = new CfEnv();
