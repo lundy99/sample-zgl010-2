@@ -1,0 +1,98 @@
+_schema-version: "3.2"
+ID: com.mhi.ZGL010
+version: 0.0.1
+modules:
+# ------------------------------------------------------------
+  # - name: ZGL010-app-router
+  #   type: approuter.nodejs
+  #   path: approuter
+  #   parameters:
+  #     disk-quota: 256M
+  #     memory: 256M
+  #   requires:
+  #     # - name: s4h-xsuaa
+  #     - name: ZGL010-xsuaa
+  #     - name: srv-api
+  #       group: destinations
+  #       properties:
+  #         name: srv-api
+  #         url: "~{srv-url}"
+  #         forwardAuthToken: true   
+# ------------------------------------------------------------
+  - name: ZGL010-API
+    type: java.tomcat
+    path: ZGL010-API/application
+    parameters:
+      memory: 1500M
+      timeout: 300
+      random-route: true
+      buildpacks:
+        - sap_java_buildpack
+    properties:
+      TARGET_RUNTIME: tomcat
+      JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+      SPRING_PROFILES_ACTIVE: 'cloud'
+      USE_JCO: true
+      SET_LOGGING_LEVEL: '{com.sap.core.connectivity.jco: DEBUG, com.sap.conn.jco: DEBUG}'
+      xsuaa_connectivity_instance_name: s4h-xsuaa
+      # xsuaa_connectivity_instance_name: ZGL010-xsuaa
+      connectivity_instance_name: s4h-connectivity
+      destination_instance_name: s4h-destination
+    build-parameters:
+      builder: custom
+      commands:
+        - mvn clean package
+      build-result: target/*-application.war
+    requires:
+    - name: s4h-xsuaa
+    # - name: ZGL010-xsuaa
+    - name: s4h-destination
+    - name: s4h-connectivity
+    - name: exts4h_hdidb
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name}
+    - name: logs-sample
+
+# ------------------------------------------------------------
+    # provides:
+    # - name: srv-api      # required by consumers of CAP services (e.g. approuter)
+    #   properties:
+    #     srv-url: ${default-url}
+# ------------------------------------------------------------
+resources:
+  - name: s4h-xsuaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-name: s4h-xsuaa
+      service-plan: application
+      path: ZGL010-API/xsuaa/xs-security.json
+      # path: ZGL010-API/xsuaa/xs-security_copy.json
+  - name: s4h-destination
+    parameters:
+      service-plan: lite
+      service: destination
+      service-name: s4h-destination
+    type: org.cloudfoundry.managed-service
+
+  - name: s4h-connectivity    
+    parameters:
+      service-plan: lite
+      service: connectivity
+      service-name: s4h-connectivity  
+    type: org.cloudfoundry.existing-service
+
+  - name: exts4h_hdidb
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        schema: EXTS4_HDI
+    properties:
+      hdi-container-name: ${service-name}
+
+  - name: logs-sample
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite
+      service-name: application-log

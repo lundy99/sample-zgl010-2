@@ -1,0 +1,27 @@
+---
+applications:
+
+- name: ZGL010-API
+  memory: 1500M
+  timeout: 300
+  random-route: true
+  path: ZGL010-API/application/target/ZGL010-API-application.war
+  buildpacks:
+    - sap_java_buildpack
+  env:
+    USE_JCO: true
+    TARGET_RUNTIME: tomcat
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+
+    # SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
+    xsuaa_connectivity_instance_name: s4h-xsuaa2
+    connectivity_instance_name: s4h-connectivity
+    destination_instance_name: s4h-destination
+  services:
+  #  - my-application-logs
+  - s4h-xsuaa2
+  - s4h-destination
+  - s4h-connectivity
+  - exts4h_hdidb
+

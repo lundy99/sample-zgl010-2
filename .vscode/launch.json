@@ -1,0 +1,40 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Java Program",
+      "request": "launch",
+      "mainClass": "com.mhi.zgl010.Application",
+      "args": "--spring.profiles.active=dev"
+    },
+    {
+      "type": "java",
+      "name": "Launch with Arguments Prompt1",
+      "request": "launch",
+      "mainClass": "",
+      "args": "${command:SpecifyProgramArgs}"
+    },
+    {
+      "type": "java",
+      "name": "Launch with Arguments Prompt2",
+      "request": "launch",
+      "mainClass": "com.mhi.zgl010.Application",
+      "args": "${command:SpecifyProgramArgs}"
+    },
+    {
+      "type": "java",
+      "name": "Launch with Env",
+      "request": "launch",
+      "mainClass": "com.mhi.zgl010.Application",
+      "env": {
+        "vcap.services.hana.credentials.driver": "com.sap.db.jdbc.Driver",
+        "vcap.services.hana.credentials.url": "jdbc:sap://ba331d5a-9060-4095-a149-25ced0779ebe.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=EXTS4_HDI_1",
+        "vcap.services.hana.credentials.username": "EXTS4_HDI_1_7VWB2EI9B2ECAKSE246EN3FXU_RT",
+        "vcap.services.hana.credentials.password": "Ze9K43756w5A7w1bw2x3nllx6nXe1uP6mXm8i8JaaFs3K2ESAsMLY40eWzi29Oty4DrP7MyN7JaGHfDtmblTYDMhDdiQev7qvvqkWGG.FhAXPiuRFqh5qCETT.A4QT9Z"
+      }
+    }
+  ]
+}
